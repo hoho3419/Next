@@ -1,0 +1,35 @@
+Next JS
+
+- next 10버전과 13버전의 차이
+
+  > Image 컴포넌트 개선
+
+  - Next.js 13버전에서는 Image 컴포넌트의 로딩 방식이 변경되었고, 특히 CLS(Cumulative Layout Shift)를 해결하는 방식과 lazy loading을 구현하는 방식이 변경되었습니다.
+
+  > app 디렉토리 추가
+
+  - Next.js 13버전에서 라우팅 방식을 향상시킨 app 폴더가 추가로 생겼습니다.
+
+  > Turbopack 번들러(빌드 도구) 도입
+
+  - Next.js 13버전에서 Turbopack이 도입되었습니다. Turbopack은 React와 Next.js를 위한 최적화된 번들러로, 웹 애플리케이션의 성능을 크게 향상시킬 수 있습니다.
+
+  ? Turbopack란?
+
+  - 정적 파일 번들링: Turbopack은 CSS, 이미지, 폰트 등과 같은 정적 파일을 번들링합니다.
+  - JS 번들링: Turbopack은 JavaScript를 번들링합니다.
+  - 최적화: Turbopack은 코드 최적화, 모듈 최적화, 리소스 최적화 등의 기능을 제공합니다.
+  - 핫 리로드: Turbopack은 핫 리로드 기능을 제공합니다.
+
+* NextJs는 사전 렌더링기능이 포함되어 있기 때문에 index.html이 없다.
+  - 서버에서 완성된 html을 반환하기 때문이다.
+
+* Image
+  - Image 컴포넌트를 사용함으로써 jpg를 크롬에서 지원하는 webp로 확장자를 바꾸고 용량을 줄인다.
+  - 품질이 좀 떨어질 수 있고 lazy 로딩을 하기 때문에 초기 화면 렌더링 속도가 더욱 올라간다.
+
+* _document 파일
+  - HTML 파일 문서를 담을 수 있는 컴포넌트이고 Head의 설정을 통해 meta 태그 설정이 가능하다.
+  - next/head 에서 Head를 가져와사 페이지마다 동적 으로 Head를 변경할 수 있다.
+
+* API 라우트
