@@ -33,3 +33,13 @@ Next JS
   - next/head 에서 Head를 가져와사 페이지마다 동적 으로 Head를 변경할 수 있다.
 
 * API 라우트
+
+
+* 베포
+  - Standard Build (Next build)
+    -) 일반 빌드랑 같이 코드를 수정하면 다시 빌드해서 베포해야함
+    -) 노드를 실행할 수 있는 환경이여야한다. 
+  - Full Static Build (Next Export)
+    -) Node 서버가 필요없음
+    -) HTML,css,js 만 있음
+    -) GetServerSide 같이 서버 사이드 코드를 사용할 수 없다.
