@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./hero.module.css";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Hero = () => {
   return (
@@ -11,6 +11,7 @@ const Hero = () => {
           src={"/images/site/profile.jpg"}
           width={300}
           height={300}
+          priority
         />
         이미지
       </div>
