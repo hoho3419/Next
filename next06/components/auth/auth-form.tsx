@@ -1,24 +1,56 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import classes from "./auth-form.module.css";
+import axios from "axios";
+
+const createUser = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  try {
+    const response = await axios.post("api/auth/signup", { email, password });
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
 
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
   }
+  const SubmitHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!isLogin) {
+      // 회원가입
+      const userData = {
+        email: email.current?.value as string,
+        password: password.current?.value as string,
+      };
+      const msg = createUser(userData);
+    } else {
+      // 로그인
+    }
+  };
 
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-      <form>
+      <form onSubmit={SubmitHandler}>
         <div className={classes.control}>
           <label htmlFor="email">Your Email</label>
-          <input type="email" id="email" required />
+          <input type="email" id="email" required ref={email} />
         </div>
         <div className={classes.control}>
           <label htmlFor="password">Your Password</label>
-          <input type="password" id="password" required />
+          <input type="password" id="password" required ref={password} />
         </div>
         <div className={classes.actions}>
           <button>{isLogin ? "Login" : "Create Account"}</button>
