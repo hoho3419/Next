@@ -26,7 +26,7 @@ function AuthForm() {
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
   }
-  const SubmitHandler = (event: React.FormEvent) => {
+  const SubmitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!isLogin) {
       // 회원가입
@@ -34,7 +34,12 @@ function AuthForm() {
         email: email.current?.value as string,
         password: password.current?.value as string,
       };
-      const msg = createUser(userData);
+      try {
+        const result = await createUser(userData);
+        console.log(result);
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       // 로그인
     }
