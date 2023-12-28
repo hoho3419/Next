@@ -1,8 +1,15 @@
 import Link from "next/link";
 
 import classes from "./main-navigation.module.css";
+import { signOut, useSession } from "next-auth/react";
 
 function MainNavigation() {
+  // const {data,status,update} = useSession();
+
+  const logoutHandler = () => {
+    // signOut(); 로그아웃 하기
+  }
+
   return (
     <header className={classes.header}>
       <Link href="/">

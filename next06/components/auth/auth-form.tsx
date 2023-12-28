@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import classes from "./auth-form.module.css";
 import axios from "axios";
+import { signIn } from "next-auth/react";
 
 const createUser = async ({
   email,
@@ -42,6 +43,7 @@ function AuthForm() {
       }
     } else {
       // 로그인
+      // signIn() 이 함수 이용해서 요청
     }
   };
 
